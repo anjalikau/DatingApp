@@ -13,4 +13,4 @@
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.7.1"/>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.0.0"/>
   </ItemGroup>
-</Project>dotnet user-secrets set "Movies:ServiceApiKey" "12345"
+</Project>
