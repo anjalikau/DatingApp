@@ -14,6 +14,7 @@ import { UserService } from 'src/app/_services/user.service';
 export class MemberUpdateComponent implements OnInit {
   @ViewChild('editForm', {static: true}) editForm: NgForm;
   user: User;
+  //lastActive: Date;
   photoUrl: string;
   @HostListener('window:beforeunload', ['$event'])
   unloadNotification ($event: any) {
@@ -28,6 +29,8 @@ export class MemberUpdateComponent implements OnInit {
   ngOnInit() {
     this.route.data.subscribe(data => {
       this.user = data['user'];
+      //this.lastActive = data['user']['lastActive'];
+      //console.log(this.lastActive);
     });
     this.authServices.currentPhotoUrl.subscribe(photoUrl => this.photoUrl = photoUrl);
   }
