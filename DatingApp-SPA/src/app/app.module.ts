@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { RouterModule } from '@angular/router';
@@ -63,6 +64,7 @@ export function tokenGetter() {
     , BrowserAnimationsModule
     , BsDropdownModule.forRoot()
     , PaginationModule.forRoot()
+    , ButtonsModule.forRoot()
     , BsDatepickerModule.forRoot()
     , TabsModule.forRoot()
     , TimeagoModule.forRoot()
