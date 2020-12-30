@@ -7,6 +7,7 @@ import { MemberUpdateComponent } from './members/member-update/member-update.com
 import { MessagesComponent } from './messages/messages.component';
 import { AuthGuard } from './_gurads/auth.guard';
 import { PreventUnsavedChanges } from './_gurads/prevent-unsaved-changes.guard';
+import { ListsResolver } from './_resolvers/lists.resolver';
 import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
 import { MemberListResolver } from './_resolvers/member-list.resolver';
 import { MemberUpdateResolver } from './_resolvers/member-update.resolver';
@@ -20,10 +21,10 @@ export const appRoutes: Routes = [
     children: [
         {path: 'members' , component: MemberListComponent , resolve: {users: MemberListResolver}},
         {path: 'members/:id' , component: MemberDetailComponent , resolve: {user: MemberDetailResolver}},
-        {path: 'member/update' , component: MemberUpdateComponent 
-        , resolve: {user: MemberUpdateResolver}, canDeactivate:[PreventUnsavedChanges]},
+        {path: 'member/update' , component: MemberUpdateComponent
+        , resolve: {user: MemberUpdateResolver}, canDeactivate: [PreventUnsavedChanges]},
         {path: 'messages' , component: MessagesComponent},
-        {path: 'lists' , component: ListComponent}
+        {path: 'lists' , component: ListComponent, resolve: {users: ListsResolver}},
     ]
 },
 {path: '**' , redirectTo: 'home' , pathMatch: 'full'}
