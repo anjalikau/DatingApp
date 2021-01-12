@@ -11,6 +11,7 @@ import { ListsResolver } from './_resolvers/lists.resolver';
 import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
 import { MemberListResolver } from './_resolvers/member-list.resolver';
 import { MemberUpdateResolver } from './_resolvers/member-update.resolver';
+import { MessageResolver } from './_resolvers/messages.resolver';
 
 export const appRoutes: Routes = [
 {path: 'home' , component: HomeComponent},
@@ -23,7 +24,7 @@ export const appRoutes: Routes = [
         {path: 'members/:id' , component: MemberDetailComponent , resolve: {user: MemberDetailResolver}},
         {path: 'member/update' , component: MemberUpdateComponent
         , resolve: {user: MemberUpdateResolver}, canDeactivate: [PreventUnsavedChanges]},
-        {path: 'messages' , component: MessagesComponent},
+        {path: 'messages' , component: MessagesComponent , resolve: {messages: MessageResolver}},
         {path: 'lists' , component: ListComponent, resolve: {users: ListsResolver}},
     ]
 },
