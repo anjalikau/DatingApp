@@ -13,6 +13,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { FileUploadModule } from 'ng2-file-upload';
 import { TimeagoModule } from 'ngx-timeago';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -38,6 +39,12 @@ import { PhotoEditorComponent } from './members/photo-editor/photo-editor.compon
 import { ListsResolver } from './_resolvers/lists.resolver';
 import { MessageResolver } from './_resolvers/messages.resolver';
 import { MemberMessagesComponent } from './members/member-messages/member-messages.component';
+import { AdminPanelComponent } from './Admin/admin-panel/admin-panel.component';
+import { HasRoleDirective } from './_directive/hasRole.directive';
+import { UserManagementComponent } from './Admin/user-management/user-management.component';
+import { PhotoManagementComponent } from './Admin/photo-management/photo-management.component';
+import { AdminService } from './_services/admin.service';
+import { RolesModalComponent } from './Admin/roles-modal/roles-modal.component';
 
 
 export function tokenGetter() {
@@ -58,6 +65,11 @@ export function tokenGetter() {
     , MemberUpdateComponent
     , PhotoEditorComponent
     , MemberMessagesComponent
+    , AdminPanelComponent
+    , HasRoleDirective
+    , UserManagementComponent
+    , PhotoManagementComponent
+    , RolesModalComponent
   ],
   imports: [
     BrowserModule
@@ -73,6 +85,7 @@ export function tokenGetter() {
     , TabsModule.forRoot()
     , TimeagoModule.forRoot()
     , RouterModule.forRoot(appRoutes)
+    , ModalModule.forRoot()
     , NgxGalleryModule
     , FileUploadModule
     , JwtModule.forRoot({
@@ -95,6 +108,10 @@ export function tokenGetter() {
     , PreventUnsavedChanges
     , ListsResolver
     , MessageResolver
+    , AdminService
+  ],
+  entryComponents: [
+    RolesModalComponent
   ],
   bootstrap: [
     AppComponent
